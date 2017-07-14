@@ -1,0 +1,50 @@
+<h1>Show Animals Page</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Common Name:</strong>
+  <%= @animal.common_name %>
+</p>
+
+<p>
+  <strong>Latin Name:</strong>
+  <%= @animal.latin_name %>
+</p>
+
+<p>
+  <strong>Kingdom:</strong>
+  <%= @animal.kingdom %>
+</p>
+
+<p>
+  <strong>Sightings:</strong>
+  <ul>
+    <%= render partial: "sightings/sighting", collection: @animal.sightings %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_animal_path(@animal) %> |
+<%= link_to 'Back', animals_path %> |
+<%#= link_to 'New Sighting', new_sighting_path(:animal => @animal.id) %>
+<%= link_to 'Search Sightings', sightings_path %>
+
+<hr>
+<h2>Add New Sighting</h2>
+<p>
+  <!-- Input area for new sighting -->
+  <div class="field">
+    <label for="sighting_date">Date</label><br>
+    <input type="text" name="sighting[date]" id="sighting_date" required>
+  </div>
+
+  <div class="field">
+    <label for="sighting_region">Region</label><br>
+    <input type="text" name="sighting[region]" id="sighting_region" required>
+  </div>
+
+  <input type="hidden" name="sighting[animal_id]" id="lolz" value="<%=@animal.id%>"/><br>
+  <button id="add_new_sighting_button">Add New Sighting</button>
+</p>
+
+<div id="calendar">
+</div> <!--closes calendar div-->

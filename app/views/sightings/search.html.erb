@@ -1,0 +1,19 @@
+ <table>
+  <thead>
+    <tr>
+      <th>The New Animal Sightings</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sightings.each do |sighting| %>
+      <tr>
+        <td><%= sighting.date %></td>
+        <td><%= sighting.common_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Animals Home', animals_url %>
